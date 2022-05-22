@@ -4,6 +4,7 @@ void	ft_memset(void *s, int c, unsigned n)
 	unsigned char uc;
 	int i;
 
+	new_s = s;
 	uc = c;
 	i = 0;
 	while (i < n)
