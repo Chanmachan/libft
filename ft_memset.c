@@ -1,18 +1,16 @@
-void	ft_memset(void *s, int c, unsigned n)
+void	ft_memset(void *s, int c, unsigned int n)
 {
-	unsigned char *new_s;
 	unsigned char uc;
 	int i;
 
-	new_s = s;
 	uc = c;
 	i = 0;
 	while (i < n)
 	{
-		new_s[i] = uc;
+		((unsigned char *)s)[i] = uc;
 		i++;
 	}
 	return (s);
 }
 
-// why return (s)?
+// L10 brackets are important
