@@ -14,6 +14,7 @@ int	ft_isalnum(int c)
 	}
 }
 
+/*
 #include <stdio.h>
 
 int main(void)
@@ -21,3 +22,4 @@ int main(void)
 	int a = ' ';
 	printf("%d", ft_isalnum(a));
 }
+*/
