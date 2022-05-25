@@ -19,6 +19,10 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 
 	i = 0;
 	len_src = ft_strlen(src);
+	if (n == 0)
+	{
+		return (len_src);
+	}
 	while (i < n - 1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
@@ -28,14 +32,18 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 	return (len_src);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
 	char a[] = "abcdefg";
-	char b[] = "";
+	char b[] = "   ";
 
 	printf("%zu\n", ft_strlcpy(a, b, 0));
 	printf("%zu\n", strlcpy(a, b, 0));
 }
+*/
+
+//L22 cafeful
