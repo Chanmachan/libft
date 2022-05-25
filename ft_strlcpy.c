@@ -47,3 +47,4 @@ int main(void)
 */
 
 //L22 cafeful
+//use libft.h to delete ft_strlen func
