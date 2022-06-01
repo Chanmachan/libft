@@ -10,6 +10,7 @@ int	ft_isdigit(int c)
 	}
 }
 
+/*
 #include <stdio.h>
 
 int main(void)
@@ -17,3 +18,4 @@ int main(void)
 	int a = '5';
 	printf("%d", ft_isdigit(a));
 }
+*/
