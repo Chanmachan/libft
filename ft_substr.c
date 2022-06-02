@@ -31,6 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 //L13 (len + 1) bracket needed
 //L20 new_s[i] != '\0' important
 
+/*
 #include <stdio.h>
 
 int main(void)
@@ -41,3 +42,4 @@ int main(void)
 
 	printf("%s", ft_substr(a, b, c));
 }
+*/
