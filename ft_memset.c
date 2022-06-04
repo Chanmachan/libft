@@ -1,7 +1,9 @@
+#include "libft.h"
+
 void	*ft_memset(void *s, int c, unsigned int n)
 {
 	unsigned char uc;
-	int i;
+	unsigned int i;
 
 	uc = c;
 	i = 0;

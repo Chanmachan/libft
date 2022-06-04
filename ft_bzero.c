@@ -1,3 +1,5 @@
+#include "libft.h"
+
 void	ft_bzero(void *s, int n)
 {
 	char uc;
@@ -10,5 +12,5 @@ void	ft_bzero(void *s, int n)
 		((unsigned char *)s)[i] = uc;
 		i++;
 	}
-	return (s);
+	return ;
 }
