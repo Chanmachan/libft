@@ -27,8 +27,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int main(void)
 {
-	char a[] = "abc defg";
-	char b[] = "abc fg";
+	char a[] = "   xxxtripouille   xxx";
+	char b[] = " x";
 
 	printf("%s\n", ft_strtrim(a, b));
 }
