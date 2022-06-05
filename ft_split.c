@@ -26,7 +26,7 @@ size_t	count_len(char *str, char word)
 	return (i);
 }
 
-char	*ft_strdup(char *str, size_t len)
+char	*ft_mystrdup(char *str, size_t len)
 {
 	size_t	i;
 	char	*rtn_str;
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (i < array)
 	{
-		rtn_str[i] = ft_strdup(new_s, count_len(new_s, c));
+		rtn_str[i] = ft_mystrdup(new_s, count_len(new_s, c));
 		new_s = new_s + count_len(new_s, c) + 1;
 		i++;
 	}
@@ -84,7 +84,7 @@ int main(void)
 	printf("%s\n", c[4]);
 }
 */
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -107,3 +107,4 @@ int	main(void)
 	free(tmp2_sep_str);
 	return (0);
 }
+*/
