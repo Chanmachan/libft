@@ -9,21 +9,16 @@ size_t	count_array(char *str, char word)
 	num_array = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == word)
+		while (str[i] == word && str[i] != '\0')
+			i++;
+		if (str[i] != word && str[i] != '\0')
+		{
+			while (str[i] != word && str[i] != '\0')
+				i++;
 			num_array++;
-		i++;
+		}
 	}
-	return (num_array + 1);
-}
-
-size_t	count_len(char *str, char word)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != word && str[i] != '\0')
-		i++;
-	return (i);
+	return (num_array);
 }
 
 char	*ft_mystrdup(char *str, size_t len)
@@ -44,37 +39,52 @@ char	*ft_mystrdup(char *str, size_t len)
 	return (rtn_str);
 }
 
+char	**if_null_func(char **str_box, char *str)
+{
+	str_box[0] = str;
+	return (str_box);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	*new_s;
 	char	**rtn_str;
 	size_t	i;
+	size_t 	j;
 	size_t	array;
 
 	new_s = (char *) s;
-	i = 0;
 	array = count_array(new_s, c);
 	rtn_str = (char **) malloc (sizeof(char *) * array + 1);
 	if (rtn_str == NULL)
 		return (NULL);
-	while (i < array)
+	j = 0;
+	if (c == 0 || (char) c == '\0')
+		return (if_null_func(rtn_str, new_s));
+	while (j < array)
 	{
-		rtn_str[i] = ft_mystrdup(new_s, count_len(new_s, c));
-		new_s = new_s + count_len(new_s, c) + 1;
-		i++;
+		i = 0;
+		while (new_s[i] != '\0' && new_s[i] == c)
+			i++;
+		new_s = new_s + i;
+		i = 0;
+		while (new_s[i] != '\0' && new_s[i] != c)
+			i++;
+		rtn_str[j++] = ft_mystrdup(new_s, i);
+		new_s = new_s + i;
 	}
 	return (rtn_str);
 }
 
-//how to use free func
-//L64 +1 means to skip
+//if_null_func -> return string only
+
 /*
 #include <stdio.h>
 
 int main(void)
 {
-	char	a[] = "abc def ghi";
-	char	b = ' ';
+	char	a[] = "tripouille";
+	char	b = 0;
 
 	char	**c = ft_split(a, b);
 	printf("%s\n", c[0]);
