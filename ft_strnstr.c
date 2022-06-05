@@ -7,22 +7,22 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 
 	i = 0;
 	j = 0;
-	if (((char *) s2)[j] == '\0')
+	if (s2[j] == '\0')
 		return ((char *) s1);
-	while (len > 0)
+	if (len == 0)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (((char *) s1)[i] == ((char *) s2)[j])
+		j = 0;
+		while ((s1[i + j] == s2[j] || s2[j] == '\0') && (i + j) < len)
 		{
-			while (((char *) s2)[j] != '\0')
-			{
-				ft_strchr(&((char *) s1)[i], *(char *) s2);
-				i++;
-				j++;
-				return ((char *) s1 + i - j);
-			}
+			if (s2[j] == '\0')
+				return (((char *) s1) + i);
+			j++;
 		}
+		if (s2[j] == '\0')
+			return ((char *)s1 + i);
 		i++;
-		len--;
 	}
 	return (NULL);
 }
@@ -33,8 +33,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 
 int main(void)
 {
-	char a[] = "abcdefgh";
-	char b[] = "de";
+	char a[] = "aaabcabcd";
+	char b[] = "abcd";
 	size_t	len = 9;
 
 	printf("%s\n", ft_strnstr(a, b, len));
