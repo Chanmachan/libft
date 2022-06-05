@@ -11,21 +11,18 @@ char	*ft_strrchr(const char *s, int c)
 	len_s = ft_strlen(s);
 	len_s_tmp = len_s;
 	i = 0;
-	while (len_s > 0)
+	if ((char) c == '\0' || c == 0)
+		return (new_s + len_s_tmp);
+	while (len_s--)
 	{
 		if (new_s[len_s] == (char) c)
-		{
-			return (new_s + len_s_tmp - i);
-		}
-		len_s--;
+			return (new_s + len_s_tmp - i - 1);
 		i++;
 	}
-	if ((char) c == '\0')
-		return (new_s + len_s_tmp + 1);
 	return (0);
 }
 
-//L38,39 plus one to return ('\0')
+//L19 -1 -> address back due to while(len_s--)
 
 /*
 #include <stdio.h>
@@ -33,13 +30,13 @@ char	*ft_strrchr(const char *s, int c)
 
 int main(void)
 {
-	char a[] = "aebcedefg";
-	int b = '\0';
+	char a[] = "tripouille";
+	int b = 'l';
 
 	printf("%s\n", ft_strrchr(a, b));
 
-	char c[] = "aebcedefg";
-	int d = '\0';
+	char c[] = "tripouille";
+	int d = 'l';
 
 	printf("%s\n", strrchr(c, d));
 }
