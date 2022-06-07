@@ -57,7 +57,7 @@ char	*ft_itoa(int n)
 	char	*chr_n;
 	size_t 	len_n;
 	int 	tmp_n;
-	size_t 	*chanma;
+	size_t 	chanma;
 
 	tmp_n = n;
 	len_n = 2;
@@ -71,12 +71,10 @@ char	*ft_itoa(int n)
 	len_n = get_digit(tmp_n, len_n);
 	if (!(chr_n = (char *)malloc(sizeof(char) * (len_n + 1))))
 		return (NULL);
-	if (!(chanma = (size_t *) malloc(sizeof(size_t) * 1)))
-		return (NULL);
-	n = if_int_minimum(n, chr_n, chanma);
-	n = if_negative(n, chr_n, chanma);
+	n = if_int_minimum(n, chr_n, &chanma);
+	n = if_negative(n, chr_n, &chanma);
 	chr_n[len_n--] = '\0';
-	chr_n = put_char_num(n, chr_n, chanma, len_n);
+	chr_n = put_char_num(n, chr_n, &chanma, len_n);
 	return (chr_n);
 }
 
