@@ -8,7 +8,7 @@ char	*ft_strrchr(const char *s, int c)
 	char	*new_s;
 
 	new_s = (char *) s;
-	len_s = ft_strlen(s);
+	len_s = (int)ft_strlen(s);
 	len_s_tmp = len_s;
 	i = 0;
 	if ((char) c == '\0' || c == 0)
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 			return (new_s + len_s_tmp - i - 1);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 //L19 -1 -> address back due to while(len_s--)
@@ -30,13 +30,13 @@ char	*ft_strrchr(const char *s, int c)
 
 int main(void)
 {
-	char a[] = "tripouille";
-	int b = 'l';
+	char a[] = "bc";
+	int b = 'a';
 
 	printf("%s\n", ft_strrchr(a, b));
 
-	char c[] = "tripouille";
-	int d = 'l';
+	char c[] = "bc";
+	int d = 'a';
 
 	printf("%s\n", strrchr(c, d));
 }
