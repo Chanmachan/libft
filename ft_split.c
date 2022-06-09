@@ -70,9 +70,9 @@ char	**ft_split(char const *s, char c)
 
 //if_null_func -> return string only
 
-#include <stdio.h>
+/*#include <stdio.h>
 
-/*int main(void)
+int main(void)
 {
 	char	a[] = "tripouille";
 	char	b = 0;
