@@ -1,19 +1,5 @@
 #include "libft.h"
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: daelee <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 12:38:12 by daelee            #+#    #+#             */
-/*   Updated: 2020/04/09 11:00:41 by daelee           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
-
 size_t	count_array(char *str, char word)
 {
 	size_t	i;
@@ -53,12 +39,6 @@ char	*ft_mystrdup(char *str, size_t len)
 	return (rtn_str);
 }
 
-char	**if_null_func(char **str_box, char *str)
-{
-	str_box[0] = str;
-	return (str_box);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	*new_s;
@@ -69,12 +49,10 @@ char	**ft_split(char const *s, char c)
 
 	new_s = (char *) s;
 	array = count_array(new_s, c);
-	rtn_str = (char **) malloc (sizeof(char *) * array + 1);
+	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
 	if (rtn_str == NULL)
 		return (NULL);
 	j = 0;
-	if (c == 0 || (char) c == '\0')
-		return (if_null_func(rtn_str, new_s));
 	while (j < array)
 	{
 		i = 0;
@@ -87,15 +65,15 @@ char	**ft_split(char const *s, char c)
 		rtn_str[j++] = ft_mystrdup(new_s, i);
 		new_s = new_s + i;
 	}
+	rtn_str[j] = NULL;
 	return (rtn_str);
 }
 
 //if_null_func -> return string only
 
-/*
 #include <stdio.h>
 
-int main(void)
+/*int main(void)
 {
 	char	a[] = "tripouille";
 	char	b = 0;
@@ -106,15 +84,15 @@ int main(void)
 	printf("%s\n", c[2]);
 	printf("%s\n", c[3]);
 	printf("%s\n", c[4]);
-}
-*/
-/*
+	free (*c);
+}*/
+
 #include <stdio.h>
 
-int	main(void)
+/*int	main(void)
 {
-	char	src[] = "/42//T//okyo// Piscine//Libft";
-	char	c = '/';
+	char	src[] = "tripouille";
+	char	c = 0;
 	char	**sep_str;
 	char	**tmp_sep_str;
 	char	**tmp2_sep_str;
@@ -130,5 +108,4 @@ int	main(void)
 	free(*tmp_sep_str);
 	free(tmp2_sep_str);
 	return (0);
-}
-*/
+}*/
