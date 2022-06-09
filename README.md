@@ -1,5 +1,5 @@
 # libft
 
-started around May 18
+started around May 18 2022
 
-completed on June 9 (only Mandatory part)
+completed on June 9 2022 (only Mandatory part)
