@@ -8,23 +8,23 @@ SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
 		ft_putendl_fd.c ft_putnbr_fd.c
 
 
-OBJS = ${SRCS:.c=.o}
+OBJS = $(SRCS:.c=.o)
 
 CC	= gcc
 rm	= rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-$(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 
-all:	${NAME}
+all:	$(NAME)
 
 clean:
-		${RM} ${OBJS}
+		$(RM) $(OBJS)
 
 fclean:		clean
-		${RM} ${NAME}
+		$(RM) $(NAME)
 
 re:		fclean all
 
