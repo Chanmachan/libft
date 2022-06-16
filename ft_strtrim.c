@@ -32,7 +32,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
-	if (!(rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) - chanma((char *)s1, (char *)set) + 1))))
+	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) - chanma((char *)s1, (char *)set) + 1));
+	if (rtn_str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;

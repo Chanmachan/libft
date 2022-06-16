@@ -15,7 +15,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		rtn_str = ft_strdup("\0");
 		return (rtn_str);
 	}
-	if (!(rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s) - start + 1))))
+	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s) - start + 1));
+	if (rtn_str == NULL)
 		return (NULL);
 	while (i < len && new_s[start] != '\0')
 		rtn_str[i++] = new_s[start++];

@@ -49,7 +49,8 @@ char	**ft_split(char const *s, char c)
 
 	new_s = (char *) s;
 	array = count_array(new_s, c);
-	if (!(rtn_str = (char **) malloc (sizeof(char *) * (array + 1))))
+	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
+	if (rtn_str == NULL)
 		return (NULL);
 	j = 0;
 	while (j < array)

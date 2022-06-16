@@ -13,7 +13,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL || f == NULL)
 		return NULL;
 	len_s = ft_strlen(s);
-	if(!(rtn_str = (char *)malloc(sizeof(char) * (len_s + 1))))
+	rtn_str = (char *)malloc(sizeof(char) * (len_s + 1));
+	if (rtn_str == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i] != '\0')

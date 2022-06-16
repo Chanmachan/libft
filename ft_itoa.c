@@ -69,7 +69,8 @@ char	*ft_itoa(int n)
 	if (tmp_n < 0)
 		tmp_n = convert_sign_plus(tmp_n);
 	len_n = get_digit(tmp_n, len_n);
-	if (!(chr_n = (char *)malloc(sizeof(char) * (len_n + 1))))
+	chr_n = (char *)malloc(sizeof(char) * (len_n + 1));
+	if (chr_n == NULL)
 		return (NULL);
 	n = if_int_minimum(n, chr_n, &chanma);
 	n = if_negative(n, chr_n, &chanma);
