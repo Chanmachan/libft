@@ -87,9 +87,9 @@ int main(void)
 	free (*c);
 }*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 
-/*int	main(void)
+int	main(void)
 {
 	char	src[] = "tripouille";
 	char	c = 0;
