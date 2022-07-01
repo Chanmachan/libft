@@ -78,6 +78,7 @@ char	*ft_itoa(int n)
 	chr_n = put_char_num(n, chr_n, &chanma, len_n);
 	return (chr_n);
 }
+//size_t chanma is stopper
 
 /*
 #include <stdio.h>
