@@ -2,8 +2,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	new_s;
-	int	sign;
+	int		new_s;
+	int		sign;
 	size_t	i;
 
 	new_s = 0;
