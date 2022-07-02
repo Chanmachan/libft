@@ -6,6 +6,8 @@ char	*ft_strdup(char *str)
 	size_t	len;
 	char	*rtn_str;
 
+	if (!str)
+		return (NULL);
 	len = ft_strlen(str);
 	rtn_str = (char *) malloc (sizeof(char) * (len + 1));
 	if (rtn_str == NULL)
@@ -20,12 +22,11 @@ char	*ft_strdup(char *str)
 	return (rtn_str);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 
 int main(void)
 {
-	char a[] = "";
+	char *a = NULL;
 
 	printf("%s\n", ft_strdup(a));
 }*/
