@@ -11,19 +11,19 @@ size_t 	is_set(char c, char const *set)
 	return (0);
 }
 
-size_t 	chanma(char *s1, char *s2)
+size_t 	trim_word(char *s1, char *s2)
 {
-	size_t 	chanma;
+	size_t 	word;
 	size_t 	i;
 
-	chanma = 0;
+	word = 0;
 	i = 0;
 	while (s1[i++] != '\0')
 	{
 		if (is_set(s1[i], s2) == 1)
-			chanma++;
+			word++;
 	}
-	return (chanma);
+	return (word);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -32,7 +32,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
-	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) - chanma((char *)s1, (char *)set) + 1));
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return ((char *)s1);
+	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) - trim_word((char *)s1, (char *)set) + 1));
 	if (rtn_str == NULL)
 		return (NULL);
 	i = 0;
@@ -48,15 +52,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (rtn_str);
 }
 
+//if set is NULL -> return (s1)
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 
 int main(void)
 {
-	char a[] = "   xxxtripouille   xxx";
-	char b[] = " x";
+	char a[] = "abcd";
+	char *b = NULL;
 
 	printf("%s\n", ft_strtrim(a, b));
-}
-*/
+}*/
+
