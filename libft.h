@@ -1,7 +1,7 @@
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 #include <unistd.h>
 #include <stdint.h>
 #include <limits.h>
