@@ -16,6 +16,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
+//do something for each char
 
 /*
 #include <stdio.h>
