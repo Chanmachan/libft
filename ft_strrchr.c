@@ -24,20 +24,20 @@ char	*ft_strrchr(const char *s, int c)
 
 //L19 -1 -> address back due to while(len_s--)
 
-/*
-#include <stdio.h>
+
+/*#include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
-	char a[] = "bc";
+	char *a = NULL;
 	int b = 'a';
 
 	printf("%s\n", ft_strrchr(a, b));
 
-	char c[] = "bc";
+	char *c = NULL;
 	int d = 'a';
 
 	printf("%s\n", strrchr(c, d));
-}
-*/
+}*/
+//if s == NULL SIGSEGV (same as the original)
