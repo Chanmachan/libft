@@ -19,3 +19,13 @@ char	*ft_strdup(char *str)
 	rtn_str[i] = '\0';
 	return (rtn_str);
 }
+
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	char a[] = "";
+
+	printf("%s\n", ft_strdup(a));
+}*/
