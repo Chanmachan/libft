@@ -27,17 +27,15 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	return (NULL);
 }
 
-/*
-#include <string.h>
+/*#include <string.h>
 #include <stdio.h>
 
 int main(void)
 {
-	char a[] = "aaabcabcd";
-	char b[] = "abcd";
+	char *a = NULL;
+	char b[] = "\0";
 	size_t	len = 9;
 
 	printf("%s\n", ft_strnstr(a, b, len));
 	printf("%s\n", strnstr(a, b, len));
-}
-*/
+}*/
