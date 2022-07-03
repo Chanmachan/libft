@@ -33,6 +33,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*rtn_str;
 	size_t	len_rtn_str;
 
+	if (s1 == NULL)
+		return (NULL);
 	len_rtn_str = ft_strlen(s1) + ft_strlen(s2);
 	rtn_str = (char *) malloc (sizeof(char) * (len_rtn_str + 1));
 	if (rtn_str == NULL)
@@ -42,15 +44,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (rtn_str);
 }
 
-/*
-#include <string.h>
+
+/*#include <string.h>
 #include <stdio.h>
 
 int main(void)
 {
-	char a[] = "abcd e";
-	char b[] = "42";
+	char *a = "abcd";
+	char b[] = "\0";
 
 	printf("%s\n", ft_strjoin(a, b));
-}
-*/
+}*/
+
