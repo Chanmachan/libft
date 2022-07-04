@@ -1,0 +1,7 @@
+*.out
+
+libftTester
+
+*.DS_Store
+
+*.idea
