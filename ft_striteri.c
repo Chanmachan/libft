@@ -1,11 +1,8 @@
-//
-// Created by 本間優之介 on 2022/06/07.
-//
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t i;
+	size_t	i;
 
 	if (s == NULL || f == NULL)
 		return ;
