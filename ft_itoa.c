@@ -31,7 +31,7 @@ static int	if_int_minimum(int num, char *chr_n, size_t *stopper)
 	return (num);
 }
 
-static if_negative(int num, char *chr_n, size_t *stopper)
+static int if_negative(int num, char *chr_n, size_t *stopper)
 {
 	if (num < 0)
 	{
