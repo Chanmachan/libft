@@ -41,14 +41,12 @@ char	*ft_mystrdup(char *str, size_t len)
 
 char	**ft_split(char const *s, char c)
 {
-	char	*new_s;
 	char	**rtn_str;
 	size_t	i;
-	size_t 	j;
+	size_t	j;
 	size_t	array;
 
-	new_s = (char *) s;
-	array = count_array(new_s, c);
+	array = count_array((char *)s, c);
 	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
 	if (rtn_str == NULL)
 		return (NULL);
@@ -56,14 +54,14 @@ char	**ft_split(char const *s, char c)
 	while (j < array)
 	{
 		i = 0;
-		while (new_s[i] != '\0' && new_s[i] == c)
+		while (((char *)s)[i] != '\0' && ((char *)s)[i] == c)
 			i++;
-		new_s = new_s + i;
+		s = s + i;
 		i = 0;
-		while (new_s[i] != '\0' && new_s[i] != c)
+		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
-		rtn_str[j++] = ft_mystrdup(new_s, i);
-		new_s = new_s + i;
+		rtn_str[j++] = ft_mystrdup((char *)s, i);
+		s = s + i;
 	}
 	rtn_str[j] = NULL;
 	return (rtn_str);
