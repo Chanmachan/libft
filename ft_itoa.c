@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static size_t 	get_digit(int num, size_t digit)
+static size_t	get_digit(int num, size_t digit)
 {
 	while (num >= 10)
 	{
@@ -10,7 +10,7 @@ static size_t 	get_digit(int num, size_t digit)
 	return (digit);
 }
 
-static int 	convert_sign_plus(int num)
+static int	convert_sign_plus(int num)
 {
 	if (num < 0)
 	{
@@ -19,7 +19,7 @@ static int 	convert_sign_plus(int num)
 	return (num);
 }
 
-static int	if_int_minimum(int num, char *chr_n, size_t *stopper)
+static int	if_int_min_minus(int num, char *chr_n, size_t *stopper)
 {
 	if (num == -2147483648)
 	{
@@ -27,17 +27,14 @@ static int	if_int_minimum(int num, char *chr_n, size_t *stopper)
 		chr_n[1] = '2';
 		num = 147483648;
 		*stopper = 2;
+		return (num);
 	}
-	return (num);
-}
-
-static int if_negative(int num, char *chr_n, size_t *stopper)
-{
-	if (num < 0)
+	else if (num < 0)
 	{
 		chr_n[0] = '-';
 		num = num * -1;
 		*stopper = 1;
+		return (num);
 	}
 	return (num);
 }
@@ -55,9 +52,9 @@ static char	*put_char_num(int num, char *chr_n, size_t *stopper, size_t len)
 char	*ft_itoa(int n)
 {
 	char	*chr_n;
-	size_t 	len_n;
-	int 	tmp_n;
-	size_t 	stopper;
+	size_t	len_n;
+	int		tmp_n;
+	size_t	stopper;
 
 	tmp_n = n;
 	len_n = 2;
@@ -72,13 +69,11 @@ char	*ft_itoa(int n)
 	chr_n = (char *)malloc(sizeof(char) * (len_n + 1));
 	if (chr_n == NULL)
 		return (NULL);
-	n = if_int_minimum(n, chr_n, &stopper);
-	n = if_negative(n, chr_n, &stopper);
+	n = if_int_min_minus(n, chr_n, &stopper);
 	chr_n[len_n--] = '\0';
 	chr_n = put_char_num(n, chr_n, &stopper, len_n);
 	return (chr_n);
 }
-
 
 /*#include <stdio.h>
 
@@ -86,7 +81,6 @@ int main(void)
 {
 	printf("%s\n", ft_itoa(-2147483648));
 }*/
-
 
 //int -> -2147483648 <= n <= 2147483647
 
