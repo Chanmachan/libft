@@ -2,8 +2,8 @@
 
 void	*ft_memset(void *s, int c, unsigned int n)
 {
-	unsigned char uc;
-	unsigned int i;
+	unsigned char	uc;
+	unsigned int	i;
 
 	uc = c;
 	i = 0;
