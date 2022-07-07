@@ -1,17 +1,13 @@
-//
-// Created by 本間優之介 on 2022/06/06.
-//
-
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*rtn_str;
 	unsigned int	len_s;
-	size_t 			i;
+	size_t			i;
 
 	if (s == NULL || f == NULL)
-		return NULL;
+		return (NULL);
 	len_s = ft_strlen(s);
 	rtn_str = (char *)malloc(sizeof(char) * (len_s + 1));
 	if (rtn_str == NULL)
