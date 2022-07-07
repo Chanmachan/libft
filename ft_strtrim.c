@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static size_t 	is_set(char c, char const *set)
+static size_t	is_set(char c, char const *set)
 {
 	while (*set)
 	{
@@ -11,10 +11,10 @@ static size_t 	is_set(char c, char const *set)
 	return (0);
 }
 
-static size_t 	trim_word(char *s1, char *s2)
+static size_t	trim_word(char *s1, char *s2)
 {
-	size_t 	word;
-	size_t 	i;
+	size_t	word;
+	size_t	i;
 
 	word = 0;
 	i = 0;
@@ -36,7 +36,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (set == NULL)
 		return ((char *)s1);
-	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) - trim_word((char *)s1, (char *)set) + 1));
+	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) \
+				- trim_word((char *)s1, (char *)set) + 1));
 	if (rtn_str == NULL)
 		return (NULL);
 	i = 0;
@@ -63,4 +64,3 @@ int main(void)
 
 	printf("%s\n", ft_strtrim(a, b));
 }*/
-
