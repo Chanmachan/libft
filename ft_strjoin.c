@@ -44,7 +44,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (rtn_str);
 }
 
-
 /*#include <string.h>
 #include <stdio.h>
 
@@ -55,4 +54,3 @@ int main(void)
 
 	printf("%s\n", ft_strjoin(a, b));
 }*/
-
