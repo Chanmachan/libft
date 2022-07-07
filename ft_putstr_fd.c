@@ -2,7 +2,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t 	i;
+	size_t	i;
 
 	if (s == NULL)
 		return ;
