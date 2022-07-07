@@ -1,6 +1,6 @@
 #include "libft.h"
 
-size_t 	get_digit(int num, size_t digit)
+static size_t 	get_digit(int num, size_t digit)
 {
 	while (num >= 10)
 	{
@@ -10,7 +10,7 @@ size_t 	get_digit(int num, size_t digit)
 	return (digit);
 }
 
-int 	convert_sign_plus(int num)
+static int 	convert_sign_plus(int num)
 {
 	if (num < 0)
 	{
@@ -19,7 +19,7 @@ int 	convert_sign_plus(int num)
 	return (num);
 }
 
-int	if_int_minimum(int num, char *chr_n, size_t *stopper)
+static int	if_int_minimum(int num, char *chr_n, size_t *stopper)
 {
 	if (num == -2147483648)
 	{
@@ -31,7 +31,7 @@ int	if_int_minimum(int num, char *chr_n, size_t *stopper)
 	return (num);
 }
 
-int if_negative(int num, char *chr_n, size_t *stopper)
+static if_negative(int num, char *chr_n, size_t *stopper)
 {
 	if (num < 0)
 	{
@@ -42,7 +42,7 @@ int if_negative(int num, char *chr_n, size_t *stopper)
 	return (num);
 }
 
-char	*put_char_num(int num, char *chr_n, size_t *stopper, size_t len)
+static char	*put_char_num(int num, char *chr_n, size_t *stopper, size_t len)
 {
 	while (len-- > *stopper)
 	{
