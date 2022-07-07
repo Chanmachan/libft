@@ -91,8 +91,8 @@ int main(void)
 
 int	main(void)
 {
-	char	src[] = "tripouille";
-	char	c = 0;
+	char	src[] = "      ";
+	char	c = ' ';
 	char	**sep_str;
 	char	**tmp_sep_str;
 	char	**tmp2_sep_str;
