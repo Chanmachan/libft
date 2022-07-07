@@ -1,6 +1,6 @@
 #include "libft.h"
 
-size_t 	is_set(char c, char const *set)
+static size_t 	is_set(char c, char const *set)
 {
 	while (*set)
 	{
@@ -11,7 +11,7 @@ size_t 	is_set(char c, char const *set)
 	return (0);
 }
 
-size_t 	trim_word(char *s1, char *s2)
+static size_t 	trim_word(char *s1, char *s2)
 {
 	size_t 	word;
 	size_t 	i;
