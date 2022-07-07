@@ -2,9 +2,9 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	len_s;
-	int	len_s_tmp;
-	int	i;
+	int		len_s;
+	int		len_s_tmp;
+	int		i;
 	char	*new_s;
 
 	new_s = (char *) s;
@@ -23,7 +23,6 @@ char	*ft_strrchr(const char *s, int c)
 }
 
 //L19 -1 -> address back due to while(len_s--)
-
 
 /*#include <stdio.h>
 #include <string.h>
