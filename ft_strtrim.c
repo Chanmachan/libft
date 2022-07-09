@@ -18,6 +18,8 @@ static char	*sp_substr(char const *str, size_t start, size_t size)
 	char	*rtn_str;
 
 	rtn_str = (char *) malloc(sizeof(char) * size);
+	if (rtn_str == NULL)
+		return (NULL);
 	i = 0;
 	while (i < size && str[start] != '\0')
 		rtn_str[i++] = str[start++];
@@ -40,9 +42,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	start = 0;
 	end = 0;
-	while (ft_strchr(set, s1[start]))
+	while (start < len && ft_strchr(set, s1[start]))
 		start++;
-	while (ft_strchr(set, s1[len - end]))
+	while (end < len && ft_strchr(set, s1[len - end]))
 		end++;
 	if (len < start + end)
 		return (ft_strdup("\0"));
@@ -53,14 +55,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 //if set is NULL -> return (s1)
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 
 int main(void)
 {
 	char *a = ft_strtrim("   xxx   xxx", " x");
 	printf("%s\n", a);
 	free(a);
-	system("leaks -q a.out");
-}
-*/
+}*/
