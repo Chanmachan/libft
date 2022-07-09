@@ -51,6 +51,12 @@ static char	*ft_mystrdup(char *str, size_t len)
 	return (rtn_str);
 }
 
+static char	**allfree(char **rtn_str)
+{
+	free(rtn_str);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**rtn_str;
@@ -67,12 +73,12 @@ char	**ft_split(char const *s, char c)
 	{
 		i = 0;
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] == c)
-			i++;
-		s = s + i;
-		i = 0;
+			s++;
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
-		rtn_str[j++] = ft_mystrdup((char *)s, i);
+		rtn_str[j] = ft_mystrdup((char *)s, i);
+		if (rtn_str[j++] == NULL)
+			return (allfree(rtn_str));
 		s = s + i;
 	}
 	rtn_str[j] = NULL;
