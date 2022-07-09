@@ -12,17 +12,24 @@
 
 #include "libft.h"
 
+static int	ft_isspace(int c)
+{
+	if (c == ' ' || c == '\n' || c == '\r' || \
+			c == '\f' || c == '\t' || c == '\v')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int		new_s;
+	long	new_s;
 	int		sign;
 	size_t	i;
 
 	new_s = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\r' || \
-			str[i] == '\f' || str[i] == '\t' || str[i] == '\v')
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -30,23 +37,25 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (ft_isdigit(str[i]))
 	{
-		new_s = (new_s * 10) + (str[i] - 48);
+		if (sign == 1 && (new_s * 10 + sign * (str[i] - '0')) / 10 != new_s)
+			return ((int)LONG_MAX);
+		if (sign == -1 && (new_s * 10 + sign * (str[i] - '0')) / 10 != new_s)
+			return ((int)LONG_MIN);
+		new_s = (new_s * 10) + sign * (str[i] - '0');
 		i++;
 	}
-	return (new_s * sign);
+	return ((int)new_s);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 
 int	main(void)
 {
-	char a[] = "	 \n-42 3";
+//	char a[] = "	 \n-42 3";
 
-	printf("%d\n", atoi(a));
-	printf("%d\n", ft_atoi(a));
-}
-*/
+	printf("%d\n", atoi("-2147483648"));
+	printf("%d\n", ft_atoi("-2147483648"));
+}*/
