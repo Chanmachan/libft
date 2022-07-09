@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	count_array(char *str, char word)
+static size_t	count_array(char *str, char word)
 {
 	size_t	i;
 	size_t	num_array;
@@ -33,7 +33,7 @@ size_t	count_array(char *str, char word)
 	return (num_array);
 }
 
-char	*ft_mystrdup(char *str, size_t len)
+static char	*ft_mystrdup(char *str, size_t len)
 {
 	size_t	i;
 	char	*rtn_str;
