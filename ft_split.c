@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	count_array(char *str, char word)
+static size_t	count_array(char const *str, char word)
 {
 	size_t	i;
 	size_t	num_array;
@@ -33,7 +33,7 @@ static size_t	count_array(char *str, char word)
 	return (num_array);
 }
 
-static char	*ft_mystrdup(char *str, size_t len)
+static char	*ft_strndup(char const *str, size_t len)
 {
 	size_t	i;
 	char	*rtn_str;
@@ -53,6 +53,14 @@ static char	*ft_mystrdup(char *str, size_t len)
 
 static char	**allfree(char **rtn_str)
 {
+	size_t	i;
+
+	i = 0;
+	while (rtn_str[i] != NULL)
+	{
+		free(rtn_str[i]);
+		i++;
+	}
 	free(rtn_str);
 	return (NULL);
 }
@@ -76,7 +84,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
-		rtn_str[j] = ft_mystrdup((char *)s, i);
+		rtn_str[j] = ft_strndup((char *)s, i);
 		if (rtn_str[j++] == NULL)
 			return (allfree(rtn_str));
 		s = s + i;
