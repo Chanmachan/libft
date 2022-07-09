@@ -16,7 +16,7 @@ void	*ft_calloc(size_t n, size_t size)
 {
 	void	*rtn_box;
 
-	if (n >= SIZE_MAX && size >= SIZE_MAX)
+	if (n >= SIZE_MAX / size)
 		return (NULL);
 	if (n == 0 || size == 0)
 		return (NULL);
