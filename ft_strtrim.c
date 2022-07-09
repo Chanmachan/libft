@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (set == NULL)
 		return ((char *)s1);
 	len = ft_strlen(s1);
-	start =0;
+	start = 0;
 	end = 0;
 	while (ft_strchr(set, s1[start]))
 		start++;
