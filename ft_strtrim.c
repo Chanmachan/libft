@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	*sp_substr(char const *str, size_t start, size_t size)
 {
