@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_calloc(size_t n, size_t size)
 {
@@ -21,10 +20,7 @@ void	*ft_calloc(size_t n, size_t size)
 	{
 		rtn_box = (void *) malloc(1);
 		if (rtn_box == NULL)
-		{
-			printf("aaa\n");
 			return (NULL);
-		}
 		ft_memset(rtn_box, 0, 1);
 		return (rtn_box);
 	}
