@@ -22,15 +22,6 @@ static size_t	get_digit(int num, size_t digit)
 	return (digit);
 }
 
-static int	convert_sign_plus(int num)
-{
-	if (num < 0)
-	{
-		num = num * -1;
-	}
-	return (num);
-}
-
 static int	if_int_min_minus(int num, char *chr_n, size_t *stopper)
 {
 	if (num == -2147483648)
@@ -65,19 +56,15 @@ char	*ft_itoa(int n)
 {
 	char	*chr_n;
 	size_t	len_n;
-	int		tmp_n;
 	size_t	stopper;
 
-	tmp_n = n;
 	len_n = 2;
 	stopper = 0;
-	if (tmp_n == -2147483648)
+	if (n == -2147483648)
 		len_n = 11;
-	if (tmp_n < 0)
+	if (n < 0)
 		len_n = len_n + 1;
-	if (tmp_n < 0)
-		tmp_n = convert_sign_plus(tmp_n);
-	len_n = get_digit(tmp_n, len_n);
+	len_n = get_digit(n, len_n);
 	chr_n = (char *)malloc(sizeof(char) * (len_n + 1));
 	if (chr_n == NULL)
 		return (NULL);
