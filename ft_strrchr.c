@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	char	*new_s;
 
 	new_s = (char *) s;
-	len_s = (int)ft_strlen(s);
+	len_s = ft_strlen(s);
 	len_s_tmp = len_s;
 	i = 0;
 	if ((char) c == '\0' || c == 0)
