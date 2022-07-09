@@ -47,6 +47,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == NULL)
 		return (NULL);
+	if (s2 == NULL)
+		return (ft_strdup((char *)s1));
 	len_rtn_str = ft_strlen(s1) + ft_strlen(s2);
 	rtn_str = (char *) malloc (sizeof(char) * (len_rtn_str + 1));
 	if (rtn_str == NULL)
@@ -62,7 +64,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 int main(void)
 {
 	char *a = "abcd";
-	char b[] = "\0";
+	char *b = NULL;
 
 	printf("%s\n", ft_strjoin(a, b));
 }*/
