@@ -11,68 +11,57 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	is_set(char c, char const *set)
+static char	*sp_substr(char *str, size_t start, size_t size)
 {
-	while (*set)
-	{
-		if (c == *set)
-			return (1);
-		set++;
-	}
-	return (0);
-}
-
-static size_t	trim_word(char *s1, char *s2)
-{
-	size_t	word;
 	size_t	i;
+	char	*rtn_str;
 
-	word = 0;
+	rtn_str = (char *) malloc(sizeof(char) * size);
 	i = 0;
-	while (s1[i++] != '\0')
-	{
-		if (is_set(s1[i], s2) == 1)
-			word++;
-	}
-	return (word);
+	while (i < size && str[start] != '\0')
+		rtn_str[i++] = str[start++];
+	rtn_str[i] = '\0';
+	return (rtn_str);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*rtn_str;
-	size_t	i;
-	size_t	j;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	size_t	size;
 
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
 		return ((char *)s1);
-	rtn_str = (char *) malloc (sizeof(char) * (ft_strlen(s1) \
-				- trim_word((char *)s1, (char *)set) + 1));
-	if (rtn_str == NULL)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (((char *) s1)[i] != '\0')
-	{
-		if (ft_strchr(set, s1[i]) == 0)
-			rtn_str[j++] = s1[i++];
-		else
-			i++;
-	}
-	rtn_str[j] = '\0';
+	len = ft_strlen(s1);
+	start =0;
+	end = 0;
+	while (ft_strchr(set, s1[start]))
+		start++;
+	while (ft_strchr(set, s1[len - end]))
+		end++;
+	if (len < start + end)
+		return (ft_strdup("\0"));
+	size = len - start - end + 1;
+	rtn_str = sp_substr((char *)s1, start, size);
 	return (rtn_str);
 }
 
 //if set is NULL -> return (s1)
 
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 
 int main(void)
 {
-	char a[] = "abcd";
-	char *b = NULL;
-
-	printf("%s\n", ft_strtrim(a, b));
-}*/
+	char *a = ft_strtrim("   xxx   xxx", " x");
+	printf("%s\n", a);
+	free(a);
+	system("leaks -q a.out");
+}
+*/
