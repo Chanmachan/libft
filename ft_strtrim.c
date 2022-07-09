@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static char	*sp_substr(char *str, size_t start, size_t size)
+static char	*sp_substr(char const *str, size_t start, size_t size)
 {
 	size_t	i;
 	char	*rtn_str;
