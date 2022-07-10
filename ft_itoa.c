@@ -61,6 +61,8 @@ static char	*put_char_num(int num, char *chr_n, size_t *stopper, size_t len)
 	return (chr_n);
 }
 
+#include <stdio.h>
+
 char	*ft_itoa(int n)
 {
 	char	*chr_n;
@@ -71,10 +73,10 @@ char	*ft_itoa(int n)
 	tmp_n = n;
 	len_n = 2;
 	stopper = 0;
-	if (tmp_n == -2147483648)
-		len_n = 11;
 	if (tmp_n < 0)
 		len_n = len_n + 1;
+	if (tmp_n == -2147483648)
+		len_n = 11;
 	if (tmp_n < 0)
 		tmp_n = convert_sign_plus(tmp_n);
 	len_n = get_digit(tmp_n, len_n);
@@ -87,12 +89,12 @@ char	*ft_itoa(int n)
 	return (chr_n);
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 
 int main(void)
 {
 	printf("%s\n", ft_itoa(-2147483648));
-}*/
+}
 
 //int -> -2147483648 <= n <= 2147483647
 
