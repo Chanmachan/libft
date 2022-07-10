@@ -12,8 +12,16 @@
 
 #include "libft.h"
 
-static size_t	get_digit(int num, size_t digit)
+static size_t	get_digit(long num)
 {
+	size_t	digit;
+
+	digit = 1;
+	if (num < 0)
+	{
+		num *= -1;
+		digit++;
+	}
 	while (num >= 10)
 	{
 		num = num / 10;
@@ -22,42 +30,24 @@ static size_t	get_digit(int num, size_t digit)
 	return (digit);
 }
 
-static int	convert_sign_plus(int num)
+static long	if_int_minus(long long num, char *chr_n, size_t *stopper)
 {
-	if (num < 0)
-	{
-		num = num * -1;
-	}
+	chr_n[0] = '-';
+	num = num * -1;
+	*stopper = 1;
 	return (num);
 }
 
-static int	if_int_min_minus(int num, char *chr_n, size_t *stopper)
+static char	*put_char_num(long num, char *chr_n, size_t len, size_t sign)
 {
-	if (num == -2147483648)
+	while (len > 0)
 	{
-		chr_n[0] = '-';
-		chr_n[1] = '2';
-		num = 147483648;
-		*stopper = 2;
-		return (num);
-	}
-	else if (num < 0)
-	{
-		chr_n[0] = '-';
-		num = num * -1;
-		*stopper = 1;
-		return (num);
-	}
-	return (num);
-}
-
-static char	*put_char_num(int num, char *chr_n, size_t *stopper, size_t len)
-{
-	while (len-- > *stopper)
-	{
-		chr_n[len] = num % 10 + 48;
+		chr_n[len] = num % 10 + '0';
 		num = num / 10;
+		len--;
 	}
+	if (sign == 0)
+		chr_n[0] = num % 10 + '0';
 	return (chr_n);
 }
 
@@ -65,25 +55,19 @@ char	*ft_itoa(int n)
 {
 	char	*chr_n;
 	size_t	len_n;
-	int		tmp_n;
-	size_t	stopper;
+	size_t	sign;
+	long	long_n;
 
-	tmp_n = n;
-	len_n = 2;
-	stopper = 0;
-	if (tmp_n == -2147483648)
-		len_n = 11;
-	if (tmp_n < 0)
-		len_n = len_n + 1;
-	if (tmp_n < 0)
-		tmp_n = convert_sign_plus(tmp_n);
-	len_n = get_digit(tmp_n, len_n);
+	long_n = n;
+	sign = 0;
+	len_n = get_digit(long_n);
 	chr_n = (char *)malloc(sizeof(char) * (len_n + 1));
 	if (chr_n == NULL)
 		return (NULL);
-	n = if_int_min_minus(n, chr_n, &stopper);
-	chr_n[len_n--] = '\0';
-	chr_n = put_char_num(n, chr_n, &stopper, len_n);
+	if (n < 0)
+		long_n = if_int_minus(n, chr_n, &sign);
+	chr_n[len_n] = '\0';
+	chr_n = put_char_num(long_n, chr_n, len_n - 1, sign);
 	return (chr_n);
 }
 
@@ -91,7 +75,7 @@ char	*ft_itoa(int n)
 
 int main(void)
 {
-	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(423789));
 }*/
 
 //int -> -2147483648 <= n <= 2147483647
