@@ -30,7 +30,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	if (i == n)
-		return (new_s1[i - 1] - new_s2[i - 1]);
+		return (0);
 	return (new_s1[i] - new_s2[i]);
 }
 
