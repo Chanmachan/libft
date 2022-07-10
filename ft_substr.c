@@ -14,16 +14,16 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	char			*new_s;
-	char			*rtn_str;
-	unsigned int	len_s;
+	size_t	i;
+	char	*new_s;
+	char	*rtn_str;
+	size_t	len_s;
 
 	i = 0;
 	new_s = (char *) s;
 	if (s == NULL)
 		return (NULL);
-	len_s = (unsigned int)ft_strlen(s);
+	len_s = ft_strlen(s);
 	if (len_s < start)
 	{
 		rtn_str = ft_strdup("\0");
