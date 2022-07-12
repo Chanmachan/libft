@@ -24,7 +24,7 @@ void	*ft_calloc(size_t n, size_t size)
 		ft_memset(rtn_box, 0, 1);
 		return (rtn_box);
 	}
-	if (n >= SIZE_MAX / size)
+	if (n > SIZE_MAX / size)
 		return (NULL);
 	rtn_box = (void *) malloc(n * size);
 	if (rtn_box == NULL)
