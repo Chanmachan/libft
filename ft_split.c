@@ -51,6 +51,17 @@ static char	*ft_strndup(char const *str, size_t len)
 	return (rtn_str);
 }
 
+char	*advance_str(char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (((char *)s)[i] != '\0' && ((char *)s)[i] == c)
+		i++;
+	s = s + i;
+	return (s);
+}
+
 static char	**allfree(char **rtn_str)
 {
 	size_t	i;
@@ -72,6 +83,8 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	size_t	array;
 
+	if (s == NULL )
+		return (NULL);
 	array = count_array((char *)s, c);
 	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
 	if (rtn_str == NULL)
@@ -80,8 +93,7 @@ char	**ft_split(char const *s, char c)
 	while (j < array)
 	{
 		i = 0;
-		while (((char *)s)[i] != '\0' && ((char *)s)[i] == c)
-			s++;
+		s = advance_str((char *)s, c);
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
 		rtn_str[j] = ft_strndup((char *)s, i);
@@ -99,8 +111,8 @@ char	**ft_split(char const *s, char c)
 
 int main(void)
 {
-	char	a[] = "tripouille";
-	char	b = 0;
+	char	a[] = "hello,world,42,tokyo";
+	char	b = ',';
 
 	char	**c = ft_split(a, b);
 	printf("%s\n", c[0]);
