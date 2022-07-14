@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	get_digit(long num)
+static size_t	get_digit(long long num)
 {
 	size_t	digit;
 
@@ -53,10 +53,10 @@ static char	*put_char_num(long num, char *chr_n, size_t len, size_t sign)
 
 char	*ft_itoa(int n)
 {
-	char	*chr_n;
-	size_t	len_n;
-	size_t	sign;
-	long	long_n;
+	char		*chr_n;
+	size_t		len_n;
+	size_t		sign;
+	long long	long_n;
 
 	long_n = n;
 	sign = 0;
