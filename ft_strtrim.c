@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
-		return ((char *)s1);
+		return (ft_strdup((char *)s1));
 	len = ft_strlen(s1);
 	start = 0;
 	end = 0;
