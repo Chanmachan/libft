@@ -21,8 +21,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	new_src = (unsigned char *)src;
 	if (n == 0)
 		return (dest);
-	if (dest == NULL || src == NULL)
-		return (0);
 	if (dest > src)
 	{
 		while (n--)
@@ -33,14 +31,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
+#include <string.h>
 
 int main()
 {
-	char	str[] = {67, 68, 67, 68, 69, 0, 45};;
+	char	*str = NULL;
 
 	ft_memmove(str + 1, str, 2);
+	memmove(str + 1, str, 2);
 	printf("%s\n", str);
-}
-*/
+}*/
