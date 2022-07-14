@@ -38,7 +38,7 @@ static long	if_int_minus(long long num, char *chr_n, size_t *stopper)
 	return (num);
 }
 
-static char	*put_char_num(long num, char *chr_n, size_t len, size_t sign)
+static char	*put_char_num(long long num, char *chr_n, size_t len, size_t sign)
 {
 	while (len > 0)
 	{
