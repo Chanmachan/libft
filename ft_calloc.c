@@ -17,13 +17,7 @@ void	*ft_calloc(size_t n, size_t size)
 	void	*rtn_box;
 
 	if (n == 0 || size == 0)
-	{
-		rtn_box = (void *) malloc(1);
-		if (rtn_box == NULL)
-			return (NULL);
-		ft_memset(rtn_box, 0, 1);
-		return (rtn_box);
-	}
+		return (calloc(1, 1));
 	if (n > SIZE_MAX / size)
 		return (NULL);
 	rtn_box = (void *) malloc(n * size);
