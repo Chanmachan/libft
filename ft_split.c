@@ -33,24 +33,6 @@ static size_t	count_array(char const *str, char word)
 	return (num_array);
 }
 
-static char	*ft_strndup(char const *str, size_t len)
-{
-	size_t	i;
-	char	*rtn_str;
-
-	rtn_str = (char *) malloc (sizeof(char) * (len + 1));
-	if (rtn_str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len && str[i] != '\0')
-	{
-		rtn_str[i] = str[i];
-		i++;
-	}
-	rtn_str[i] = '\0';
-	return (rtn_str);
-}
-
 char	*advance_str(char *s, char c)
 {
 	size_t	i;
@@ -83,7 +65,7 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	size_t	array;
 
-	if (s == NULL )
+	if (s == NULL)
 		return (NULL);
 	array = count_array((char *)s, c);
 	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
@@ -96,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		s = advance_str((char *)s, c);
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
-		rtn_str[j] = ft_strndup((char *)s, i);
+		rtn_str[j] = ft_substr((char *)s, 0, i);
 		if (rtn_str[j++] == NULL)
 			return (allfree(rtn_str));
 		s = s + i;
