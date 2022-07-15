@@ -41,18 +41,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 //if set is NULL -> return (s1)
 
 /*#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	char	*s1 = "\t   \n\n\n  \n\n\t    Hello \t  Please\n Trim me !\t\t\t\n  \t\t\t\t  ";
-	char	*s2 = "Hello \t  Please\n Trim me !";
-
-	char *ret = ft_strtrim(s1, " \n\t");
-	printf("%d\n", strcmp(ret, s2));
-}*/
-
-/*#include <stdio.h>
 
 int main(void)
 {
