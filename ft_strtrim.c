@@ -12,21 +12,6 @@
 
 #include "libft.h"
 
-static char	*sp_substr(char const *str, size_t start, size_t size)
-{
-	size_t	i;
-	char	*rtn_str;
-
-	rtn_str = (char *) malloc(sizeof(char) * size);
-	if (rtn_str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size && str[start] != '\0')
-		rtn_str[i++] = str[start++];
-	rtn_str[i] = '\0';
-	return (rtn_str);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*rtn_str;
@@ -49,11 +34,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (len < start + end)
 		return (ft_strdup("\0"));
 	size = len - start - end + 1;
-	rtn_str = sp_substr((char *)s1, start, size);
+	rtn_str = ft_substr((char *)s1, start, size);
 	return (rtn_str);
 }
 
 //if set is NULL -> return (s1)
+
+/*#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char	*s1 = "\t   \n\n\n  \n\n\t    Hello \t  Please\n Trim me !\t\t\t\n  \t\t\t\t  ";
+	char	*s2 = "Hello \t  Please\n Trim me !";
+
+	char *ret = ft_strtrim(s1, " \n\t");
+	printf("%d\n", strcmp(ret, s2));
+}*/
 
 /*#include <stdio.h>
 
