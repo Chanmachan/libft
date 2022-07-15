@@ -32,6 +32,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 	return (len_src);
 }
 
+//if src == NULL -> SIGSEGV
+
 /*
 #include <stdio.h>
 #include <string.h>
@@ -51,3 +53,22 @@ int main(void)
 	printf("%s\n", c);
 }
 */
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char	*str = "BBBB";
+	char	buff1[0xF00];
+	char	buff2[0xF00];
+
+	memset(buff1, 'A', 20);
+	memset(buff2, 'A', 20);
+
+	strlcpy(buff1, str, 0);
+	printf("%s\n", buff1);
+	ft_strlcpy(buff2, str, 0);
+	printf("%s\n", buff2);
+}*/
