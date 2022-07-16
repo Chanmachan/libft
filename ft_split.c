@@ -101,8 +101,6 @@ int main(void)
 	printf("%s\n", c[1]);
 	printf("%s\n", c[2]);
 	printf("%s\n", c[3]);
-	printf("%s\n", c[4]);
-	free (*c);
 }*/
 
 /*#include <stdio.h>
