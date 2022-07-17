@@ -15,7 +15,6 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	len_s;
-	size_t	i;
 	char	*new_s;
 
 	new_s = (char *) s;
@@ -27,7 +26,6 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (new_s[len_s] == (char) c)
 			return (new_s + len_s);
-		i++;
 	}
 	return (NULL);
 }
