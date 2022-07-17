@@ -26,14 +26,12 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	while (s1[i] != '\0')
 	{
 		j = 0;
-		while ((s1[i + j] == s2[j] || s2[j] == '\0') && (i + j) < len)
+		while ((s1[i + j] == s2[j] || s2[j] == '\0') && (i + j) <= len)
 		{
 			if (s2[j] == '\0')
 				return (((char *) s1) + i);
 			j++;
 		}
-		if (s2[j] == '\0')
-			return ((char *)s1 + i);
 		i++;
 	}
 	return (NULL);
