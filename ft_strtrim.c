@@ -26,15 +26,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup((char *)s1));
 	len = ft_strlen(s1);
 	start = 0;
-	end = 0;
+	end = len;
 	while (start < len && ft_strchr(set, s1[start]))
 		start++;
-	while (end < len && ft_strchr(set, s1[len - end]))
-		end++;
-	if (len < start + end)
+	while (start < end && ft_strchr(set, s1[end - 1]))
+		end--;
+	if (start == end)
 		return (ft_strdup(""));
-	size = len - start - end + 1;
-	rtn_str = ft_substr((char *)s1, start, size);
+	size = end - start;
+	rtn_str = ft_substr((char *)s1 + start, 0, size);
 	return (rtn_str);
 }
 
