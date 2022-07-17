@@ -17,10 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*rtn_str;
 	size_t	len_rtn_str;
 
-	if (s1 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (s2 == NULL)
-		return (ft_strdup((char *)s1));
 	len_rtn_str = ft_strlen(s1) + ft_strlen(s2);
 	rtn_str = (char *) malloc (sizeof(char) * (len_rtn_str + 1));
 	if (rtn_str == NULL)
