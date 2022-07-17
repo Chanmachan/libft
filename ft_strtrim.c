@@ -32,7 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end < len && ft_strchr(set, s1[len - end]))
 		end++;
 	if (len < start + end)
-		return (ft_strdup("\0"));
+		return (ft_strdup(""));
 	size = len - start - end + 1;
 	rtn_str = ft_substr((char *)s1, start, size);
 	return (rtn_str);
