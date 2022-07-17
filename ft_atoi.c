@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+#include <stdio.h>
+
 static int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\n' || c == '\r' || \
@@ -39,15 +41,19 @@ int	ft_atoi(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 	{
-		if (sign == 1 && (new_s * 10 + sign * (str[i] - '0')) / 10 != new_s)
+		if (sign == 1 && (new_s > ((LONG_MAX - sign * (str[i] - '0')) / 10)))
 			return ((int)LONG_MAX);
-		if (sign == -1 && (new_s * 10 + sign * (str[i] - '0')) / 10 != new_s)
+		if (sign == -1 && (new_s < ((LONG_MIN - sign * (str[i] - '0')) / 10)))
 			return ((int)LONG_MIN);
 		new_s = (new_s * 10) + sign * (str[i] - '0');
 		i++;
 	}
 	return ((int)new_s);
 }
+
+//new_s * 10 + str[i] - '0' > LONG_MAX
+//new_s * 10 + sign * str[i] - '0' < LONG_MIN
+//new_s < (LONG_MIN - sign * str[i] - '0') / 10
 
 /*#include <stdio.h>
 #include <stdlib.h>
@@ -56,6 +62,7 @@ int	main(void)
 {
 //	char a[] = "	 \n-42 3";
 
-	printf("%d\n", atoi("-2147483648"));
-	printf("%d\n", ft_atoi("-2147483648"));
+//	printf("%ld\n", LONG_MIN);
+	printf("%d\n", atoi("-9223372036854775809"));
+	printf("%d\n", ft_atoi("-9223372036854775809"));
 }*/
