@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	count_array(char const *str, char word)
+static size_t	count_array(char const *str, char c)
 {
 	size_t	i;
 	size_t	num_array;
@@ -21,11 +21,11 @@ static size_t	count_array(char const *str, char word)
 	num_array = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] == word && str[i] != '\0')
+		while (str[i] == c && str[i] != '\0')
 			i++;
-		if (str[i] != word && str[i] != '\0')
+		if (str[i] != c && str[i] != '\0')
 		{
-			while (str[i] != word && str[i] != '\0')
+			while (str[i] != c && str[i] != '\0')
 				i++;
 			num_array++;
 		}
@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	array = count_array((char *)s, c);
+	array = count_array(s, c);
 	rtn_str = (char **) malloc (sizeof(char *) * (array + 1));
 	if (rtn_str == NULL)
 		return (NULL);
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		s = advance_str((char *)s, c);
 		while (((char *)s)[i] != '\0' && ((char *)s)[i] != c)
 			i++;
-		rtn_str[j] = ft_substr((char *)s, 0, i);
+		rtn_str[j] = ft_substr(s, 0, i);
 		if (rtn_str[j++] == NULL)
 			return (allfree(rtn_str));
 		s = s + i;
