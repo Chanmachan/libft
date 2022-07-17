@@ -30,11 +30,11 @@ static size_t	get_digit(long long num)
 	return (digit);
 }
 
-static long	if_int_minus(long long num, char *chr_n, size_t *stopper)
+static long	if_int_minus(long long num, char *chr_n, size_t *sign)
 {
 	chr_n[0] = '-';
 	num = num * -1;
-	*stopper = 1;
+	*sign = 1;
 	return (num);
 }
 
