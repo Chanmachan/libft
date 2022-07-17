@@ -38,7 +38,7 @@ char	*advance_str(char *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (((char *)s)[i] != '\0' && ((char *)s)[i] == c)
+	while (s[i] != '\0' && s[i] == c)
 		i++;
 	s = s + i;
 	return (s);
