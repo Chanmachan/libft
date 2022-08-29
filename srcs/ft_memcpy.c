@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 01:13:33 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:13:34 by hommayunosu      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

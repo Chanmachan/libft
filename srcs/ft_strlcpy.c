@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 01:14:10 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:14:11 by hommayunosu      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {

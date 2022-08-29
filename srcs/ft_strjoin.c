@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 01:14:06 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:14:07 by hommayunosu      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

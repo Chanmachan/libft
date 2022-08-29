@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 01:14:16 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:14:17 by hommayunosu      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 01:14:19 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:14:20 by hommayunosu      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
