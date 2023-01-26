@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 02:13:38 by hommayunosu       #+#    #+#             */
-/*   Updated: 2023/01/27 02:13:39 by hommayunosu      ###   ########.fr       */
+/*   Created: 2023/01/27 02:25:18 by hommayunosu       #+#    #+#             */
+/*   Updated: 2023/01/27 02:30:30 by hommayunosu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	ft_memset(s, 0, n);
+	while (*s1 == *s2++)
+	{
+		if (*s1++ == '\0')
+			return (0);
+	}
+	return (*(const unsigned char *)s1 - *(const unsigned char *)s2);
 }

@@ -6,7 +6,7 @@
 /*   By: hommayunosuke <hommayunosuke@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 01:14:52 by hommayunosu       #+#    #+#             */
-/*   Updated: 2022/07/08 01:14:53 by hommayunosu      ###   ########.fr       */
+/*   Updated: 2023/01/27 02:28:33 by hommayunosu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -52,8 +53,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_tolower(int	c);
-int		ft_toupper(int	c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 char	*ft_strdup(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_itoa(int n);
@@ -66,5 +67,7 @@ void	ft_putnbr_fd(int n, int fd);
 double	ft_min(double x, double y);
 double	ft_max(double x, double y);
 double	ft_clamp(double f, double min, double max);
+bool	ft_streq(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
