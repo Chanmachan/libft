@@ -69,5 +69,6 @@ double	ft_max(double x, double y);
 double	ft_clamp(double f, double min, double max);
 bool	ft_streq(const char *s1, const char *s2);
 int		ft_strcmp(const char *s1, const char *s2);
+char	*get_next_line(int fd);
 
 #endif
